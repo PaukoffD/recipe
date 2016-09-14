@@ -1,0 +1,35 @@
+class Recipe < ActiveRecord::Base
+  belongs_to :owner, class_name: 'User', foreign_key: :owner_id
+  has_many :comments
+  has_attached_file :image, styles: { small: "100x100", med: "280x235", large: "500x500" },
+                             url: "/system/:hash.:extension",
+                             hash_secret: "very_secret_hash_here"
+ 
+  acts_as_commentable
+
+  validates_attachment_file_name :image, :matches => [/png\Z/, /jpe?g\Z/]
+  validates_attachment :image, content_type: { content_type: ["image/jpeg", "image/jpg", "image/png"] },
+                               size: { in: 0..6500.kilobytes }
+
+  validates :name, :short, :description, presence: true
+  #validates :owner_id, presence: true
+
+  validates :name, length: { minimum: 10 }
+
+end
+
+# == Schema Information
+#
+# Table name: recipes
+#
+#  id                 :integer          not null, primary key
+#  name               :string
+#  short              :string
+#  description        :text
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  image_file_name    :string
+#  image_content_type :string
+#  image_file_size    :integer
+#  image_updated_at   :datetime
+#

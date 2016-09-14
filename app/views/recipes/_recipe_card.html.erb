@@ -1,0 +1,37 @@
+<div class="card sticky-action">
+<div class="z-depth-2 card large">
+  <div class="card-image waves-effect waves-block waves-light">
+    <%= image_tag(recipe.image.url,  :crop => :fit, class: 'activator') %>
+  </div>
+  <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4">
+          <%= recipe.name %>
+          <i class="material-icons right">more_vert</i>
+        </span>
+    <p>
+      <%= link_to(t(:view), recipe_path(recipe)) %></br>
+        <div class="card-action">
+      <%= link_to recipe.comment_threads.count, recipe_path(recipe) %>
+      <i class="material-icons left">chat</i></div></br>
+      <div class="left">
+      <div class="ya-share2 left" data-services="vkontakte,facebook,odnoklassniki,moimir,gplus,lj,viber,whatsapp,telegram"></div>
+      </div>  
+    </p>
+  </div>
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4">
+          <%= recipe.name %>
+          <i class="material-icons right">close</i>
+        </span>
+    <p>
+      <%= recipe.description.html_safe %>
+    </p>
+  </div>
+</div>
+
+
+ 
+  </div>
+
+  <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+<script src="//yastatic.net/share2/share.js"></script>

@@ -1,0 +1,9 @@
+<h3><%= t "active_purchases" %></h3>
+
+<div class="row">
+  <% @recipes.each do |recipe|  %>
+  <div class="col s12 m6">
+    <%= render :partial => "recipes/recipe_card", locals: { recipe: recipe } %>
+  </div>
+  <% end %>
+</div>
