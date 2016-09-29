@@ -1,11 +1,11 @@
 class RecipesController < ApplicationController
-
- # load_and_authorize_resource
+  include PublicIndex
+  #load_and_authorize_resource
   before_action :find_recipe, only: [:show, :edit, :destroy, :update]
   before_action :build_comment, only: :show
-
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-     @recipes = Recipe.order('created_at DESC').limit(4)
+     @recipes = Recipe.order('created_at DESC').page(params[:page]).per(10)
   end
 
   def new

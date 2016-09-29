@@ -4,7 +4,9 @@
       <%= link_to "Рецепты от Жули", root_path, class: "brand-logo blue-text" %>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><%= link_to 'Все рецепты', recipes_path %></li>
-        <li><%= link_to 'Новый рецепт', new_recipe_path %> </li>
+        <% if can? :create, Recipe %>
+          <li><%= link_to 'Новый рецепт', new_recipe_path %> </li>
+        <% end %> 
         <li><%= link_to 'Обо мне', about_path %></li>
         <li>
         <% if current_user %>

@@ -39,6 +39,10 @@ group :test do
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'simplecov', require: false
+  gem 'codeclimate-test-reporter', require: nil
+  gem 'rails_best_practices', require: false
+  gem 'rubycritic', require: false
 end
 
 group :development do

@@ -7,14 +7,14 @@ class Recipe < ActiveRecord::Base
  
   acts_as_commentable
 
-  validates_attachment_file_name :image, :matches => [/png\Z/, /jpe?g\Z/]
+  validates_attachment_file_name :image, :matches => [/png\Z/, /jpe?g\Z/, /JPE?G\Z/ ]
   validates_attachment :image, content_type: { content_type: ["image/jpeg", "image/jpg", "image/png"] },
                                size: { in: 0..6500.kilobytes }
 
   validates :name, :short, :description, presence: true
   #validates :owner_id, presence: true
 
-  validates :name, length: { minimum: 10 }
+  validates :name, length: { minimum: 5 }
 
 end
 

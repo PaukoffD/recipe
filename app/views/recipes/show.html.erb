@@ -6,13 +6,12 @@
   <div class="col s12 m6 ">
      
       
-        <%= image_tag(@recipe.image.url, :height => 450, :crop => :fit, class: 'activator') %>
+        <%= image_tag(@recipe.image.url(:med), :height => 450, :crop => :fit, class: 'activator') %>
   </div>   
  
-      <div class="col s12 m6">
+      <div class="col s12 m4 right">
        
-         I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+        <%= @recipe.short.to_s.html_safe %>
       
         
       </div>
