@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20160912185504) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "cities", force: :cascade do |t|
     t.string "name"
   end
@@ -33,8 +30,8 @@ ActiveRecord::Schema.define(version: 20160912185504) do
     t.datetime "updated_at",                   null: false
   end
 
-  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
-  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
 
   create_table "comments", force: :cascade do |t|
     t.integer  "commentable_id"
@@ -50,8 +47,8 @@ ActiveRecord::Schema.define(version: 20160912185504) do
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "delivery_payment_cost_types", force: :cascade do |t|
     t.string "value"
@@ -70,9 +67,9 @@ ActiveRecord::Schema.define(version: 20160912185504) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "followings", ["followed_id"], name: "index_followings_on_followed_id", using: :btree
-  add_index "followings", ["follower_id", "followed_id"], name: "index_followings_on_follower_id_and_followed_id", unique: true, using: :btree
-  add_index "followings", ["follower_id"], name: "index_followings_on_follower_id", using: :btree
+  add_index "followings", ["followed_id"], name: "index_followings_on_followed_id"
+  add_index "followings", ["follower_id", "followed_id"], name: "index_followings_on_follower_id_and_followed_id", unique: true
+  add_index "followings", ["follower_id"], name: "index_followings_on_follower_id"
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
@@ -83,16 +80,16 @@ ActiveRecord::Schema.define(version: 20160912185504) do
     t.integer  "user_id"
   end
 
-  add_index "groups", ["user_id"], name: "index_groups_on_user_id", using: :btree
+  add_index "groups", ["user_id"], name: "index_groups_on_user_id"
 
   create_table "groups_users", id: false, force: :cascade do |t|
     t.integer "group_id"
     t.integer "user_id"
   end
 
-  add_index "groups_users", ["group_id", "user_id"], name: "index_groups_users_on_group_id_and_user_id", unique: true, using: :btree
-  add_index "groups_users", ["group_id"], name: "index_groups_users_on_group_id", using: :btree
-  add_index "groups_users", ["user_id"], name: "index_groups_users_on_user_id", using: :btree
+  add_index "groups_users", ["group_id", "user_id"], name: "index_groups_users_on_group_id_and_user_id", unique: true
+  add_index "groups_users", ["group_id"], name: "index_groups_users_on_group_id"
+  add_index "groups_users", ["user_id"], name: "index_groups_users_on_user_id"
 
   create_table "order_items", force: :cascade do |t|
     t.string   "name"
@@ -115,7 +112,7 @@ ActiveRecord::Schema.define(version: 20160912185504) do
     t.string   "name"
     t.text     "description"
     t.date     "end_date"
-    t.integer  "status"
+    t.string   "status"
     t.integer  "group_id"
     t.integer  "owner_id"
     t.datetime "created_at",                                  null: false
@@ -133,9 +130,9 @@ ActiveRecord::Schema.define(version: 20160912185504) do
     t.integer  "delivery_payment_cost_type_id"
   end
 
-  add_index "purchases", ["city_id"], name: "index_purchases_on_city_id", using: :btree
-  add_index "purchases", ["delivery_payment_cost_type_id"], name: "index_purchases_on_delivery_payment_cost_type_id", using: :btree
-  add_index "purchases", ["delivery_payment_type_id"], name: "index_purchases_on_delivery_payment_type_id", using: :btree
+  add_index "purchases", ["city_id"], name: "index_purchases_on_city_id"
+  add_index "purchases", ["delivery_payment_cost_type_id"], name: "index_purchases_on_delivery_payment_cost_type_id"
+  add_index "purchases", ["delivery_payment_type_id"], name: "index_purchases_on_delivery_payment_type_id"
 
   create_table "recipes", force: :cascade do |t|
     t.string   "name"
@@ -157,8 +154,8 @@ ActiveRecord::Schema.define(version: 20160912185504) do
     t.string   "resource_type"
   end
 
-  add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
-  add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
+  add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
+  add_index "roles", ["name"], name: "index_roles_on_name"
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
@@ -172,26 +169,20 @@ ActiveRecord::Schema.define(version: 20160912185504) do
     t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "provider"
     t.string   "uid"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "users_roles", id: false, force: :cascade do |t|
     t.integer "user_id"
     t.integer "role_id"
   end
 
-  add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
+  add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
 
-  add_foreign_key "groups", "users"
-  add_foreign_key "purchases", "cities"
-  add_foreign_key "purchases", "delivery_payment_cost_types"
-  add_foreign_key "purchases", "delivery_payment_types"
 end

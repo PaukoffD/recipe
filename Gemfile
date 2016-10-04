@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 4.2', '>= 4.2.6'
+gem 'sqlite3'
 gem 'pg', '~> 0.18.4'
 gem 'materialize-sass', '~> 0.97.5'
 gem 'bcrypt-ruby', '~> 3.1', '>= 3.1.5'
@@ -23,13 +24,14 @@ gem 'font-awesome-sass',  '~> 4.3'
 gem 'responders'
 gem 'slim-rails'
 gem 'simple_form'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
   gem 'guard-rspec', '~> 4.6', '>= 4.6.4'
   gem 'headless'
   gem 'capybara'
-  gem 'capybara-webkit'
+  # gem 'capybara-webkit'
   # gem 'poltergeist'
 end
 

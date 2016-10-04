@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   rolify
   after_create :assign_default_role
   devise :database_authenticatable, :registerable, :recoverable,
-         :rememberable, :trackable, :validatable, :omniauthable
+         :rememberable,  :validatable, :omniauthable
 
   has_many :comments, dependent: :destroy
   has_many :orders, dependent: :destroy
@@ -96,8 +96,6 @@ end
 #  sign_in_count          :integer          default(0), not null
 #  current_sign_in_at     :datetime
 #  last_sign_in_at        :datetime
-#  current_sign_in_ip     :inet
-#  last_sign_in_ip        :inet
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  provider               :string
