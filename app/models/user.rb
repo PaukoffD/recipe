@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
+  has_attached_file :avatar
+  
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id) unless other_user.eql?(self)
   end
@@ -100,6 +102,10 @@ end
 #  updated_at             :datetime         not null
 #  provider               :string
 #  uid                    :string
+#  avatar_file_name       :string
+#  avatar_content_type    :string
+#  avatar_file_size       :integer
+#  avatar_updated_at      :datetime
 #
 # Indexes
 #

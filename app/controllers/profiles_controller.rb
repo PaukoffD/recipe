@@ -23,7 +23,7 @@ class ProfilesController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :phone)
+    params.require(:user).permit(:username, :phone, :avatar)
   end
 
   def require_login

@@ -5,11 +5,21 @@
         <%= f.text_field :username %>
         <%= f.label :username, class: "active" %>
     </div>
-    <div class="input-field col s12">
-        <%= f.text_field :phone %>
-        <%= f.label :phone, class: "active" %>
-    </div>
+    
 
+        <div class="row">
+          <div class="file-field input-field col s12">
+            <div class="btn">
+              <span>Картинка</span>
+              <%= f.file_field :avatar %>
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text" placeholder="Выберите изображение">
+            </div>
+            
+          </div>
+        </div>
+    
         <%= link_to t(:back), user_profile_path, class: "waves-effect waves-light btn" %>
         <%= f.submit t(:save), class: "waves-effect waves-light btn" %>
       <% end %>

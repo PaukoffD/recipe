@@ -24,6 +24,7 @@ gem 'font-awesome-sass',  '~> 4.3'
 gem 'responders'
 gem 'slim-rails'
 gem 'simple_form'
+gem 'acts-as-taggable-on'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development, :test do

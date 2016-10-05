@@ -15,7 +15,7 @@ class Recipe < ActiveRecord::Base
   #validates :owner_id, presence: true
 
   validates :name, length: { minimum: 5 }
-
+  acts_as_taggable
 end
 
 # == Schema Information

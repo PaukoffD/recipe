@@ -17,6 +17,12 @@
         </div>
         <div class="row">
           <div class="input-field col s12">
+            <%= f.text_field :tag_list, required: true, minlength: 2 %>
+             <%= f.label :tag_list, "Tags (separated by commas)" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
             <%= f.cktext_area :description, required: true, :ckeditor => {:toolbar => 'full'} %>
           </div>
         </div>
