@@ -24,12 +24,6 @@
                 <%= t('nav.profile') %>
               <% end %>
             </li>
-            <li>
-              <%= link_to '#' do %>
-                <i class="material-icons left">shopping_basket</i>
-                <%= t('nav.orders') %>
-              <% end %>
-            </li>
             <li class="divider"></li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>

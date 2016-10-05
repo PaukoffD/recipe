@@ -54,7 +54,7 @@ end
 #  name                          :string
 #  description                   :text
 #  end_date                      :date
-#  status                        :string
+#  status                        :integer
 #  group_id                      :integer
 #  owner_id                      :integer
 #  created_at                    :datetime         not null

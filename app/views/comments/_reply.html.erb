@@ -1,7 +1,7 @@
 <% comments.each do |comment| %>  
   <div class="comments-show">
     <div class="comment">
-      <h6><%= comment.created_at %></h6> написано: <%= comment.user.name %> <%= comment.body %> <br>
+      <h6><%= comment.created_at %></h6> написано: <%= comment.user.name %> <%= image_tag current_user.gravatar, class: "circle responsive-img profile-image" %> <%= comment.body %> <br>
       <div class="comment-nav"><a href="#" class="comment-reply">reply</a></div>
       <div class="reply-form">
         <%= form_for @new_comment do |f| %>

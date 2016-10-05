@@ -18,7 +18,13 @@ class User < ActiveRecord::Base
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
-  has_attached_file :avatar
+  has_attached_file :avatar, styles: { small: "100x100", med: "280x235", large: "500x500" },
+                             url: "/system/:hash.:extension",
+                             hash_secret: "very_secret_hash_here"
+
+  validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/, /JPE?G\Z/ ]
+  validates_attachment :avatar, content_type: { content_type: ["image/jpeg", "image/jpg", "image/png"] },
+                               size: { in: 0..6500.kilobytes }
   
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id) unless other_user.eql?(self)
@@ -66,9 +72,13 @@ class User < ActiveRecord::Base
 
   #Get user avatar from gravatar.com
   def gravatar
-    mail = email || "#{provider}_#{uid}"
-    hash = Digest::MD5.hexdigest(mail)
-    "http://www.gravatar.com/avatar/#{hash}?d=identicon"
+    if self.avatar_file_name.nil?
+      mail = email || "#{provider}_#{uid}"
+      hash = Digest::MD5.hexdigest(mail)
+      "http://www.gravatar.com/avatar/#{hash}?d=identicon"
+    else
+      self.avatar  
+    end  
   end
 
   def author_of?(entity)
@@ -98,6 +108,8 @@ end
 #  sign_in_count          :integer          default(0), not null
 #  current_sign_in_at     :datetime
 #  last_sign_in_at        :datetime
+#  current_sign_in_ip     :inet
+#  last_sign_in_ip        :inet
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  provider               :string
