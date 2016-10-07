@@ -27,11 +27,12 @@ class RecipesController < ApplicationController
     #upload=Cloudinary::Uploader.upload(purchase_params[:image]) unless purchase_params[:image].blank?
     #@purchase.image_file_name=upload['url'] unless purchase_params[:image].blank?
     #@recipe.image.save
+  
     if @recipe.save
       #lo
       redirect_to recipes_path
     else
-      lo
+      
       render 'new'
     end 
   end
@@ -58,7 +59,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:name, :description, :image, :short)
+    params.require(:recipe).permit(:name, :description, :image, :short, :tag_list)
   end
 
   def build_comment

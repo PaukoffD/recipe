@@ -1,4 +1,4 @@
-<h3><%= t "active_purchases" %></h3>
+<h3><%= "Свежие рецепты" %></h3>
 
 <div class="row">
   <% @recipes.each do |recipe|  %>
@@ -7,3 +7,11 @@
   </div>
   <% end %>
 </div>
+
+
+
+   
+   <% ActsAsTaggableOn::Tag.most_used.each do |most| %>
+	<div class="chip"> 
+	<h6><%= link_to most.name, root_path %> </h6></div>
+   <% end %>
