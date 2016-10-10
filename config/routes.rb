@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post 'toggle_purchase/:id' => 'purchases#toggle_purchase', as: :toggle_purchase
   root 'pages#index'
 
+  get 'tags/:tag', to: 'recipes#index', as: :tag
+
   get 'about' => 'pages#about'
 
   resource :profile, only: [:show, :edit, :update], as: :user_profile

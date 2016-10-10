@@ -5,7 +5,12 @@
         <%= f.text_field :username %>
         <%= f.label :username, class: "active" %>
     </div>
-    
+
+     <div class="row">
+          <div class="waves-block col s12 m4">
+            <%= link_to image_tag(@current_user.avatar.url(:med)), recipe_path(@recipe), class: 'activator' if @recipe.id? %>
+          </div>
+        </div>
 
         <div class="row">
           <div class="file-field input-field col s12">

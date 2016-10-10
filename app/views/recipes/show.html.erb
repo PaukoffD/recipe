@@ -1,21 +1,16 @@
 <h2 class="header">
-  <%= @recipe.name %>
+  
   <div class="card-action left-align">
-         
-          <% if can? :show, @recipe %>
-              <%= link_to(nil, class: "waves-effect waves-light btn-floating", title: "Сделать заказ") do %>
-                  <i class='material-icons'>shopping_cart</i>
-              <% end %>
-          <% end %>
+       <%= @recipe.name %>  
           <% if can? :update, @recipe %>
-                <%= link_to(edit_recipe_path(@recipe), class: "waves-effect waves-light btn-floating") do %>
+                <%= link_to(edit_recipe_path(@recipe), class: "waves-effect waves-light btn-floating", title: "Редактировать") do %>
                     <i class='material-icons'>mode_edit</i>
                 <% end %>
           <% end %>
           <% if can? :destroy, @recipe %>
-                <%= link_to(recipe_path(@recipe), class: "waves-effect waves-light btn-floating",
-                            method: :delete, data: {confirm: (t 'recipe.deletion_confirm')}) do %>
-                    <i class='medium material-icons'>alarm_on</i>
+                <%= link_to(recipe_path(@recipe), class: "waves-effect waves-light btn-floating", title: "Удалить",
+                            method: :delete, data: {confirm: "УДАЛИТЬ!! Вы уверены?"}) do %>
+                    <i class='medium material-icons'>delete</i>
                 <% end %>
           <% end %>
 

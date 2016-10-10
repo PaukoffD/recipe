@@ -29,14 +29,12 @@
 
       </div>
 
-     
-
+  <div class="row">
+     <div class="waves-block col s12 m6">   
+   <%= image_tag @recipe.image(:large), class: "materialboxed width='650'   recipe-image"%>  </img>
+    </div>
+   </div>    
        
-        <div class="row">
-          <div class="waves-block col s12">
-            <%= link_to image_tag(@recipe.image.url(:med)), recipe_path(@recipe), class: 'activator' if @recipe.id? %>
-          </div>
-        </div>
 
         <div class="row">
           <div class="file-field input-field col s12">
@@ -57,7 +55,7 @@
 
 <%= javascript_include_tag 'pickadate' %>
 <script type="text/javascript">
-  $(document).ready(function () {
-    $('#purchase_group_id, #purchase_city_id').material_select();
+ $(document).ready(function(){
+    $('.materialboxed').materialbox();
   });
 </script>
