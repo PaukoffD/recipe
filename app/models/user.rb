@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_and_belongs_to_many :groups
-  has_many :purchases, foreign_key: "owner_id"
+  has_many :recipes, foreign_key: "owner_id"
 
   has_many :active_relationships,  class_name:  "Following",
                                    foreign_key: "follower_id",

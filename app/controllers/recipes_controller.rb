@@ -4,6 +4,7 @@ class RecipesController < ApplicationController
   before_action :find_recipe, only: [:show, :edit, :destroy, :update]
   before_action :build_comment, only: :show
   skip_before_action :authenticate_user!, only: [:index, :show]
+  
   def index
      @recipes = Recipe.order('created_at DESC').page(params[:page]).per(10)
   end
@@ -23,7 +24,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    #@recipe.owner_id = current_user.id
+    @recipe.user_id = current_user.id
     #upload=Cloudinary::Uploader.upload(purchase_params[:image]) unless purchase_params[:image].blank?
     #@purchase.image_file_name=upload['url'] unless purchase_params[:image].blank?
     #@recipe.image.save

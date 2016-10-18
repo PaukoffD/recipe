@@ -20,4 +20,9 @@ end
 #  image_content_type :string
 #  image_file_size    :integer
 #  image_updated_at   :datetime
+#  user_id            :integer
+#
+# Indexes
+#
+#  index_recipes_on_user_id  (user_id)
 #
