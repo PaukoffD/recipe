@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161016132032) do
+ActiveRecord::Schema.define(version: 20161025132902) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
@@ -145,6 +145,7 @@ ActiveRecord::Schema.define(version: 20161016132032) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "user_id"
+    t.integer  "owner_id"
   end
 
   add_index "recipes", ["user_id"], name: "index_recipes_on_user_id"

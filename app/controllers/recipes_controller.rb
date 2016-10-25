@@ -24,7 +24,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe.user_id = current_user.id
+    @recipe.owner_id = current_user.id
     #upload=Cloudinary::Uploader.upload(purchase_params[:image]) unless purchase_params[:image].blank?
     #@purchase.image_file_name=upload['url'] unless purchase_params[:image].blank?
     #@recipe.image.save

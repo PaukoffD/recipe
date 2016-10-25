@@ -1,5 +1,6 @@
 class Recipe < ActiveRecord::Base
-  belongs_to :owner, class_name: 'User', foreign_key: :owner_id
+  #belongs_to :owner, class_name: 'User', foreign_key: :owner_id
+  belongs_to :user
   has_many :comments
   has_attached_file :image, styles: { small: "100x100", med: "280x235", large: "500x500" },
                              url: "/system/:hash.:extension",
@@ -12,10 +13,16 @@ class Recipe < ActiveRecord::Base
                                size: { in: 0..6500.kilobytes }
 
   validates :name, :short, :description, presence: true
-  #validates :owner_id, presence: true
+  validates :owner_id, presence: true
 
   validates :name, length: { minimum: 5 }
+  scope :my, -> { where(owner_id: owner_id) }
+
   acts_as_taggable
+
+  def owner
+    User.find(self.owner_id)
+  end
 end
 
 # == Schema Information
@@ -33,6 +40,7 @@ end
 #  image_file_size    :integer
 #  image_updated_at   :datetime
 #  user_id            :integer
+#  owner_id           :integer
 #
 # Indexes
 #

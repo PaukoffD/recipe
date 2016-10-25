@@ -1,12 +1,13 @@
+<% if can? :create, Recipe %>
 <div class="row">
   <div class="col s12 m9">
-    <% if can? :create, Recipe %>
+    
         <%= link_to 'Новый рецепт', new_recipe_path, class: "waves-effect waves-light btn" %>
-    <% end %>     
+       
   </div>
 </div>    
 
-  <% @recipes.each do |recipe|  %>
+  <% @recipes.includes(:owner).each do |recipe|  %>
   <div class="row">
 
     <div class="col s12 m4">
@@ -22,3 +23,4 @@
   <% end %>
 
   <%= paginate @recipes %>
+  <% end %>  

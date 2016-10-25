@@ -1,5 +1,5 @@
 class AddOwnerIdToRecipes < ActiveRecord::Migration
   def change
-  	add_reference :recipes, :user, index: true, foreign_key: true
+    add_column :recipes, :owner_id, :integer
   end
 end
