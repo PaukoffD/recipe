@@ -16,7 +16,7 @@ class Recipe < ActiveRecord::Base
   validates :owner_id, presence: true
 
   validates :name, length: { minimum: 5 }
-  scope :my, -> { where(owner_id: owner_id) }
+  #scope :my, -> { where(owner_id: owner_id) }
 
   acts_as_taggable
 

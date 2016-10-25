@@ -7,7 +7,7 @@
   </div>
 </div>    
 
-  <% @recipes.includes(:owner).each do |recipe|  %>
+  <% @recipes.each do |recipe|  %>
   <div class="row">
 
     <div class="col s12 m4">
@@ -23,4 +23,9 @@
   <% end %>
 
   <%= paginate @recipes %>
+  <% else %>
+   <div class="chip">
+    Вы должны авторизоваться
+   </div>
+   
   <% end %>  

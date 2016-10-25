@@ -7,20 +7,25 @@
     </div>
   </div>    
 
-  <% @recipes.my.includes(:owner).each do |recipe|  %>
-  <div class="row">
+    <% current_user.recipes.each do |recipe|  %>
+    <div class="row">
 
-    <div class="col s12 m4">
+      <div class="col s12 m4">
+      
+       <%= image_tag(recipe.image.url(:med),   :crop => :fit, class: 'activator') %>
+      </div>
+      <div class="col s12 m8">
+       <h3><%=link_to recipe.name, recipe_path(recipe) %></h3></br>
+       <%= recipe.short %>
+      </div>
     
-     <%= image_tag(recipe.image.url(:med),   :crop => :fit, class: 'activator') %>
-    </div>
-    <div class="col s12 m8">
-     <h3><%=link_to recipe.name, recipe_path(recipe) %></h3></br>
-     <%= recipe.short %>
-    </div>
-  
-   </div>
-  <% end %>
+     </div>
+      <% end %>
 
-  <%= paginate @recipes %>
+      <%= paginate @recipes %>
+  <% else %>
+   <div class="chip">
+    Вы должны авторизоваться
+   </div>
+   
   <% end %>  
