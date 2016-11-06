@@ -12,13 +12,14 @@
     <% end %>
   </div>
 </div>
+
  <div class="row">
     <div class="col s12">
       <ul class="tabs">
-        <li class="tab col s3"><a class="active" href="#tab_common"><%= "Сводка" %></a></li>
-        <li class="tab col s3"><a class="active" href="#tab_notififcation"><%= "Уведомления" %></a></li>
-        <li class="tab col s3"><a class="active" href="#tab_notififcation2"><%= "Мои рецепты" %></a></li>
-        <li class="tab col s3"><a class="active" href="#tab_notififcation3"><%= "Любимые рецепты" %></a></li>
+        <li class="tab col s4"><a class="active" href="#tab_common"><%= "Сводка" %></a></li>
+        <li class="tab col s4"><a href="#tab_notififcation"><%= "Уведомления" %></a></li>
+        <li class="tab col s3"><a href="#tab_notififcation2"><%= "Мои рецепты" %></a></li>
+        <li class="tab col s3"><a href="#tab_notififcation3"><%= "Любимые рецепты" %></a></li>
       </ul>
     </div>
 
@@ -31,10 +32,12 @@
     </div>
 
     <div id="tab_notification2" class="col s12">
-      <%= render "tab_notification" %>
+      <%= render "recipes/tab_myrecipes" %>
     </div>
 
     <div id="tab_notification3" class="col s12">
-      <%= render "tab_notification" %>
+      "Любимые рецепты"
     </div>
   </div>
+
+  

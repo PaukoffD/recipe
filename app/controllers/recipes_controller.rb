@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
   
   def index
      @recipes = Recipe.order('created_at DESC').page(params[:page]).per(10)
+   
   end
 
   def new

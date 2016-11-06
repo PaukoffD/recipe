@@ -8,14 +8,15 @@
 
   <% @recipes.each do |recipe|  %>
   <div class="row">
-
-    <div class="card-image waves-effect waves-block waves-light">
-    <%= image_tag(recipe.image,   class: 'activator materialboxed width="650"') %>
-    </div>
+   <div class="card-image1 col s12 m4">
+    
+    <%= image_tag(recipe.image, size: "250x250" ,  class: 'activator materialboxed width="650"') %>
+   </div>
     <div class="col s12 m8">
      <h3><%=link_to recipe.name, recipe_path(recipe) %></h3></br>
      <%= recipe.short %>
     </div>
+  
   
    </div>
   <% end %>

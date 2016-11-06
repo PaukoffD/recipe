@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
   get 'tags/:tag', to: 'recipes#index', as: :tag
 
-  get 'about' => 'pages#about'
-
+  get 'about'   => 'pages#about'
+  get 'alltags' => 'pages#alltags'
   resource :profile, only: [:show, :edit, :update], as: :user_profile
 
   devise_for :users, :controllers => { :omniauth_callbacks => "oauths" }

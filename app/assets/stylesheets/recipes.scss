@@ -40,11 +40,14 @@ nav {
 
 .card-image {
     height: 400px !important;
-    
-    
-    
 }
 
+.card-image1 {
+    height: auto; 
+    width: auto; 
+    max-width: 300px; 
+    max-height: 300px;
+}
 
 // Autocomplete
 

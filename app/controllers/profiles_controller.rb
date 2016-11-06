@@ -3,9 +3,15 @@ class ProfilesController < ApplicationController
   before_action :require_login
 
   def show
+     @recipes = Recipe.order('created_at DESC').page(params[:page]).per(10)
   end
 
   def edit
+  end
+
+  def index
+     @recipes = Recipe.order('created_at DESC').page(params[:page]).per(10)
+   
   end
 
   def update

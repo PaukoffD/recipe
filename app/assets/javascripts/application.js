@@ -12,13 +12,11 @@
 //
 //= require jquery
 //= require jquery.turbolinks
-//= require materialize-sprockets
 //= require jquery_ujs
 //= require jquery-ui/autocomplete
+//= require materialize-sprockets
 //= require autocomplete-rails
 //= require wice_grid
-//= require jquery-ui/datepicker
-//= require jquery-ui/datepicker-ru
 //= require ckeditor/init
 //= require_tree ./ckeditor
 //= require turbolinks
