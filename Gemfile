@@ -1,26 +1,27 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.2', '>= 4.2.6'
+gem 'rails', '>= 5.0.0'
 gem 'sqlite3'
-gem 'pg', '~> 0.18.4'
-gem 'materialize-sass', '~> 0.97.5'
-gem 'bcrypt-ruby', '~> 3.1', '>= 3.1.5'
-gem 'devise', '~> 3.5', '>= 3.5.6'
+gem 'pg'
+gem 'puma'
+gem 'materialize-sass'
+gem 'bcrypt-ruby'
+gem 'devise'
 gem 'rolify'
-gem 'cancancan', '~> 1.10'
-gem 'rails_admin', '~> 0.8.1'
+gem 'cancancan'
+gem 'rails_admin'
 gem 'jquery-turbolinks'
 gem 'figaro'
 gem 'omniauth-vkontakte'
 gem 'annotate'
-gem 'paperclip', git: "git://github.com/thoughtbot/paperclip.git"
+gem 'paperclip'
 gem 'faker'
 gem 'kaminari'
 gem 'factory_girl_rails'
 gem 'acts_as_commentable_with_threading'
-gem 'wice_grid', '~> 3.6.0'                        #фильтр таблиц
+
 gem 'ckeditor'
-gem 'font-awesome-sass',  '~> 4.3'
+
 gem 'responders'
 gem 'slim-rails'
 gem 'simple_form'
@@ -28,8 +29,8 @@ gem 'acts-as-taggable-on'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
-  gem 'guard-rspec', '~> 4.6', '>= 4.6.4'
+  gem 'rspec-rails'
+  gem 'guard-rspec'
   gem 'headless'
   gem 'capybara'
   # gem 'capybara-webkit'
@@ -55,12 +56,12 @@ group :development do
   gem "binding_of_caller"
 end
 
-gem 'sass-rails', '~> 5.0', '>= 5.0.4'
-gem 'uglifier', '~> 2.7', '>= 2.7.2'
-gem 'coffee-rails', '~> 4.1', '>= 4.1.1'
-gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
-gem 'turbolinks', '~> 2.5', '>= 2.5.3'
-gem 'jbuilder', '~> 2.4', '>= 2.4.1'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
+gem 'jquery-rails'
+gem 'turbolinks'
+gem 'jbuilder'
 gem 'rails-jquery-autocomplete'
 
 group :doc do
