@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(version: 20161025132902) do
     t.string   "name"
     t.text     "description"
     t.date     "end_date"
-    t.integer  "status"
+    t.string   "status"
     t.integer  "group_id"
     t.integer  "owner_id"
     t.datetime "created_at",                                  null: false
@@ -147,11 +147,8 @@ ActiveRecord::Schema.define(version: 20161025132902) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.integer  "user_id"
     t.integer  "owner_id"
   end
-
-  add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -196,8 +193,8 @@ ActiveRecord::Schema.define(version: 20161025132902) do
     t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "provider"
@@ -222,5 +219,4 @@ ActiveRecord::Schema.define(version: 20161025132902) do
   add_foreign_key "purchases", "cities"
   add_foreign_key "purchases", "delivery_payment_cost_types"
   add_foreign_key "purchases", "delivery_payment_types"
-  add_foreign_key "recipes", "users"
 end
