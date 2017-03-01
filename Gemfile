@@ -19,7 +19,7 @@ gem 'faker'
 gem 'kaminari'
 gem 'factory_girl_rails'
 gem 'acts_as_commentable_with_threading'
-
+gem "rails-erd"
 gem 'ckeditor'
 
 gem 'responders'
